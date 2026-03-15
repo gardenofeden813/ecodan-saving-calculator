@@ -1,4 +1,4 @@
-import ATWSimulator from "@/components/atw-simulator";
+import ATWSimulator from "@/components/ATWSimulator";
 
 export default function Home() {
   return <ATWSimulator />;
