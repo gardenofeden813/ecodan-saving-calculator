@@ -1,5 +1,5 @@
-import { SP, US_AVG } from "../data/fuel-price";
-import { ELECTRICITY_PRICES } from "../data/electricity-price";
+import fuelPricesData from "../data/fuel-price.json";
+import electricityPricesData from "../data/electricity-price.json";
 
 // ─── PHYSICAL CONSTANTS ──────────────────────────────────────────────────────
 export const BTU_PER_THERM = 100_000;
@@ -117,8 +117,8 @@ export function zipToState(zip: string): string | null {
 }
 
 export function getEnergyPrices(state: string | null): { g: number; e: number } {
-  const fuelPrices = SP as Record<string, number>;
-  const electricityPrices = ELECTRICITY_PRICES as Record<string, number>;
+  const fuelPrices = fuelPricesData as Record<string, number>;
+  const electricityPrices = electricityPricesData as Record<string, number>;
 
   const gasPrice = state && fuelPrices[state] !== undefined ? fuelPrices[state] : fuelPrices["US_AVG"];
   const electricityPrice = state && electricityPrices[state] !== undefined ? electricityPrices[state] : electricityPrices["US_AVG"];
